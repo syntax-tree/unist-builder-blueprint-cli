@@ -6,7 +6,7 @@
   "license": "MIT",
   "bin": "cli.js",
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "node test/test.js"
   },
   "files": [
     "cli.js",
@@ -35,5 +35,8 @@
     "meow": "^3.7.0",
     "unist-builder-blueprint": "../unist-builder-blueprint"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "bail": "^1.0.0",
+    "nixt": "^0.4.1"
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "type": "node",
+  "children": [
+    {
+      "type": "node",
+      "value": "foo"
+    },
+    {
+      "type": "node",
+      "value": "bar"
+    }
+  ]
+}
