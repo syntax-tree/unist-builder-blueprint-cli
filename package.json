@@ -1,0 +1,39 @@
+{
+  "name": "unist-builder-blueprint-cli",
+  "version": "0.0.0",
+  "description": "Convert Unist trees to unist-builder notation",
+  "author": "Eugene Sharygin <eush77@gmail.com>",
+  "license": "MIT",
+  "bin": "cli.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "files": [
+    "cli.js",
+    "index.js"
+  ],
+  "homepage": "https://github.com/eush77/unist-builder-blueprint-cli",
+  "repository": "eush77/unist-builder-blueprint-cli",
+  "bugs": {
+    "url": "https://github.com/eush77/unist-builder-blueprint-cli/issues"
+  },
+  "keywords": [
+    "ast",
+    "blueprint",
+    "cli",
+    "convert",
+    "dsl",
+    "notation",
+    "syntax",
+    "tree",
+    "u",
+    "unist",
+    "unist-builder"
+  ],
+  "dependencies": {
+    "escodegen": "^1.8.0",
+    "meow": "^3.7.0",
+    "unist-builder-blueprint": "../unist-builder-blueprint"
+  },
+  "devDependencies": {}
+}
