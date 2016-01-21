@@ -16,3 +16,14 @@ nixt()
   .run('./cli.js')
   .stdout(fs.readFileSync('test/output.js', 'utf8').trim())
   .end(bail);
+
+nixt()
+  .run('./cli.js nonexistent')
+  .code(1)
+  .end(bail);
+
+nixt()
+  .stdin('not a JSON')
+  .run('./cli.js')
+  .code(1)
+  .end(bail);

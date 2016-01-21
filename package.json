@@ -33,6 +33,7 @@
   "dependencies": {
     "escodegen": "^1.8.0",
     "meow": "^3.7.0",
+    "or-die": "0.0.1",
     "read-file-stdin": "^0.2.0",
     "unist-builder-blueprint": "../unist-builder-blueprint"
   },
