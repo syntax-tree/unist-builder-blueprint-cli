@@ -10,3 +10,9 @@ nixt()
   .run('./cli.js test/input.json')
   .stdout(fs.readFileSync('test/output.js', 'utf8').trim())
   .end(bail);
+
+nixt()
+  .stdin(fs.readFileSync('test/input.json'))
+  .run('./cli.js')
+  .stdout(fs.readFileSync('test/output.js', 'utf8').trim())
+  .end(bail);

@@ -1,13 +1,18 @@
 #!/usr/bin/env node
 'use strict';
 
-var meow = require('meow'),
-    toU = require('unist-builder-blueprint'),
-    escodegen = require('escodegen').generate;
+var toU = require('unist-builder-blueprint'),
+    escodegen = require('escodegen').generate,
+    meow = require('meow'),
+    readFileStdin = require('read-file-stdin');
 
 var fs = require('fs');
 
 
 var cli = meow('$ unist-builder-blueprint whatever\n\nfoo bar baz');
 
-console.log(escodegen(toU(JSON.parse(fs.readFileSync(cli.input[0], 'utf8')))));
+readFileStdin(cli.input[0], function (err, buffer) {
+  if (err) return console.error(err.toString());
+
+  console.log(escodegen(toU(JSON.parse(buffer.toString()))));
+});
