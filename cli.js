@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
+var usage = require('./lib/usage');
+
 var toU = require('unist-builder-blueprint'),
     escodegen = require('escodegen').generate,
     meow = require('meow'),
@@ -10,7 +12,10 @@ var toU = require('unist-builder-blueprint'),
 var fs = require('fs');
 
 
-var cli = meow('$ unist-builder-blueprint whatever\n\nfoo bar baz');
+var cli = meow({
+  help: usage(),
+  description: false
+});
 
 readFileStdin(cli.input[0], function (err, buffer) {
   if (err) return die(err.toString());

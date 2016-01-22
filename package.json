@@ -10,7 +10,7 @@
   },
   "files": [
     "cli.js",
-    "index.js"
+    "lib/"
   ],
   "homepage": "https://github.com/eush77/unist-builder-blueprint-cli",
   "repository": "eush77/unist-builder-blueprint-cli",
@@ -32,9 +32,13 @@
   ],
   "dependencies": {
     "escodegen": "^1.8.0",
+    "mdast-util-heading-range": "^2.0.0",
+    "mdast-util-to-string": "^1.0.1",
     "meow": "^3.7.0",
     "or-die": "0.0.1",
     "read-file-stdin": "^0.2.0",
+    "readme-file": "^0.1.0",
+    "remark": "^3.2.2",
     "unist-builder-blueprint": "../unist-builder-blueprint"
   },
   "devDependencies": {
