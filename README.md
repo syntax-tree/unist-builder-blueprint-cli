@@ -58,6 +58,12 @@ Options:
 
 See [unist-builder-blueprint].
 
+## Related
+
+- [unist-builder] — helper for creating Unist trees.
+- [unist-builder-blueprint] — API for this module.
+
+[unist-builder]: https://github.com/eush77/unist-builder
 [unist-builder-blueprint]: https://github.com/eush77/unist-builder-blueprint
 
 ## Install
