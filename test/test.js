@@ -38,3 +38,20 @@ describe('should raise an error', function () {
       .end(done);
   });
 });
+
+describe('should accept custom builder', function () {
+  it('when reading from file', function (done) {
+    nixt()
+      .run('./cli.js --builder=NODE test/data/input.json')
+      .stdout(fs.readFileSync('test/data/builder-output.js', 'utf8').trim())
+      .end(done);
+  });
+
+  it('when reading from stdin', function (done) {
+    nixt()
+      .stdin(fs.readFileSync('test/data/input.json'))
+      .run('./cli.js --builder=NODE')
+      .stdout(fs.readFileSync('test/data/builder-output.js', 'utf8').trim())
+      .end(done);
+  });
+});

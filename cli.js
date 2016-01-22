@@ -21,7 +21,9 @@ readFileStdin(cli.input[0], function (err, buffer) {
   if (err) return die(err.toString());
 
   try {
-    console.log(escodegen(toU(JSON.parse(buffer.toString()))));
+    var ast = JSON.parse(buffer.toString());
+    var escode = escodegen(toU(ast, { builder: cli.flags.builder }));
+    console.log(escode);
   }
   catch (err) {
     die(err.toString());
