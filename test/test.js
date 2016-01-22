@@ -39,19 +39,20 @@ describe('should raise an error', function () {
   });
 });
 
-describe('should accept custom builder', function () {
-  it('when reading from file', function (done) {
-    nixt()
-      .run('./cli.js --builder=NODE test/data/input.json')
-      .stdout(fs.readFileSync('test/data/builder-output.js', 'utf8').trim())
-      .end(done);
-  });
-
-  it('when reading from stdin', function (done) {
+describe('should accept', function () {
+  it('--builder to set custom builder', function (done) {
     nixt()
       .stdin(fs.readFileSync('test/data/input.json'))
       .run('./cli.js --builder=NODE')
       .stdout(fs.readFileSync('test/data/builder-output.js', 'utf8').trim())
+      .end(done);
+  });
+
+  it('format options for escodegen', function (done) {
+    nixt()
+      .stdin(fs.readFileSync('test/data/input.json'))
+      .run('./cli.js --format.indent.style="  " --format.quotes=double')
+      .stdout(fs.readFileSync('test/data/format-output.js', 'utf8').trim())
       .end(done);
   });
 });

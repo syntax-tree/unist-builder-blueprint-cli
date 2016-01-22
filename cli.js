@@ -22,7 +22,7 @@ readFileStdin(cli.input[0], function (err, buffer) {
 
   try {
     var ast = JSON.parse(buffer.toString());
-    var escode = escodegen(toU(ast, { builder: cli.flags.builder }));
+    var escode = escodegen(toU(ast, { builder: cli.flags.builder }), cli.flags);
     console.log(escode);
   }
   catch (err) {

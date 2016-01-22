@@ -26,18 +26,33 @@ u('node', { root: true }, [
 ])
 ```
 
+Set formatting options for [escodegen]:
+
+```js
+$ unist-builder-blueprint --format.indent.style="  " --format.quotes=double input.json
+u("node", { root: true }, [
+  u("node", "foo"),
+  u("node", "bar")
+])
+```
+
 ## CLI
 
 ```
-Usage:  unist-builder-blueprint [--builder <u>] [format_opts]... [<file>]
+Usage:  unist-builder-blueprint [--builder <u>] [escodegen_opts]... [<file>]
 ```
 
 Convert `<file>` (stdin by default) to [unist-builder] notation.
 
+Accepts options for [escodegen]. See [escodegen wiki] for details.
+
 ```
 Options:
-  --builder  Builder function to use (default: `u`)
+  --builder <u>  Builder function to use (default: "u")
 ```
+
+[escodegen]: https://github.com/estools/escodegen
+[escodegen wiki]: https://github.com/estools/escodegen/wiki/API
 
 ## API
 
