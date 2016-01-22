@@ -14,6 +14,18 @@ Convert [Unist] trees to [unist-builder] notation.
 [david]: https://david-dm.org/eush77/unist-builder-blueprint-cli
 [david-badge]: https://david-dm.org/eush77/unist-builder-blueprint-cli.png
 
+## Example
+
+Simple example:
+
+```js
+$ unist-builder-blueprint input.json
+u('node', { root: true }, [
+    u('node', 'foo'),
+    u('node', 'bar')
+])
+```
+
 ## CLI
 
 ```
