@@ -1,29 +1,40 @@
 'use strict';
 
-var nixt = require('nixt'),
-    bail = require('bail');
+var nixt = require('nixt');
 
 var fs = require('fs');
 
 
-nixt()
-  .run('./cli.js test/input.json')
-  .stdout(fs.readFileSync('test/output.js', 'utf8').trim())
-  .end(bail);
+describe('should accept input', function () {
+  it('from file', function (done) {
+    nixt()
+      .run('./cli.js test/data/input.json')
+      .stdout(fs.readFileSync('test/data/output.js', 'utf8').trim())
+      .end(done);
+  });
 
-nixt()
-  .stdin(fs.readFileSync('test/input.json'))
-  .run('./cli.js')
-  .stdout(fs.readFileSync('test/output.js', 'utf8').trim())
-  .end(bail);
+  it('from stdin', function (done) {
+    nixt()
+      .stdin(fs.readFileSync('test/data/input.json'))
+      .run('./cli.js')
+      .stdout(fs.readFileSync('test/data/output.js', 'utf8').trim())
+      .end(done);
+  });
+});
 
-nixt()
-  .run('./cli.js nonexistent')
-  .code(1)
-  .end(bail);
+describe('should raise an error', function () {
+  it('on nonexistent file', function (done) {
+    nixt()
+      .run('./cli.js nonexistent')
+      .code(1)
+      .end(done);
+  });
 
-nixt()
-  .stdin('not a JSON')
-  .run('./cli.js')
-  .code(1)
-  .end(bail);
+  it('on invalid JSON input', function (done) {
+    nixt()
+      .stdin('not a JSON')
+      .run('./cli.js')
+      .code(1)
+      .end(done);
+  });
+});
