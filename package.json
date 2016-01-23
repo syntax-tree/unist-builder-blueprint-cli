@@ -39,7 +39,7 @@
     "meow": "^3.7.0",
     "or-die": "0.0.1",
     "read-file-stdin": "^0.2.0",
-    "readme-file": "^0.1.0",
+    "readme-file": "^0.2.0",
     "remark": "^3.2.2",
     "unist-builder-blueprint": "^0.2.0"
   },
