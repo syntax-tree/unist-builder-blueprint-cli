@@ -5,24 +5,20 @@ var usage = require('./lib/usage');
 
 var toU = require('unist-builder-blueprint'),
     escodegen = require('escodegen').generate,
-    meow = require('meow'),
+    minimist = require('minimist'),
     readFileStdin = require('read-file-stdin'),
-    die = require('or-die');
+    die = require('or-die'),
+    cli = require('help-version')(usage);
 
-var fs = require('fs');
 
+var opts = minimist(process.argv.slice(2));
 
-var cli = meow({
-  help: usage(),
-  description: false
-});
-
-readFileStdin(cli.input[0], function (err, buffer) {
+readFileStdin(opts._[0], function (err, buffer) {
   if (err) return die(err.toString());
 
   try {
     var ast = JSON.parse(buffer.toString());
-    var escode = escodegen(toU(ast, { builder: cli.flags.builder }), cli.flags);
+    var escode = escodegen(toU(ast, { builder: opts.builder }), opts);
     console.log(escode);
   }
   catch (err) {

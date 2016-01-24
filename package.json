@@ -34,9 +34,10 @@
   ],
   "dependencies": {
     "escodegen": "^1.8.0",
+    "help-version": "^1.1.0",
     "mdast-util-heading-range": "^2.0.0",
     "mdast-util-to-string": "^1.0.1",
-    "meow": "^3.7.0",
+    "minimist": "^1.2.0",
     "or-die": "0.0.1",
     "read-file-stdin": "^0.2.0",
     "readme-file": "^0.2.0",
