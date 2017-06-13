@@ -4,7 +4,7 @@
 
 [![Build Status][travis-badge]][travis] [![Dependency Status][david-badge]][david]
 
-Convert [Unist] trees to [unist-builder] notation.
+Convert [Unist][] trees to [unist-builder][] notation.
 
 [unist]:  https://github.com/wooorm/unist
 [unist-builder]: https://github.com/eush77/unist-builder
@@ -26,7 +26,7 @@ u('node', { root: true }, [
 ])
 ```
 
-Set formatting options for [escodegen]:
+Set formatting options for [escodegen][]:
 
 ```js
 $ unist-builder-blueprint --format.indent.style="  " --format.quotes=double input.json
@@ -42,9 +42,9 @@ u("node", { root: true }, [
 Usage:  unist-builder-blueprint [--builder <u>] [escodegen_opts]... [<file>]
 ```
 
-Convert `<file>` (stdin by default) to [unist-builder] notation.
+Convert `<file>` (stdin by default) to [unist-builder][] notation.
 
-Accepts options for [escodegen]. See [escodegen wiki] for details.
+Accepts options for [escodegen][]. See [escodegen wiki][] for details.
 
 ```
 Options:
@@ -56,14 +56,13 @@ Options:
 
 ## API
 
-See [unist-builder-blueprint].
+See [unist-builder-blueprint][].
 
 ## Related
 
-- [unist-builder] — helper for creating Unist trees.
-- [unist-builder-blueprint] — API for this module.
+-   [unist-builder][] — helper for creating Unist trees.
+-   [unist-builder-blueprint][] — API for this module.
 
-[unist-builder]: https://github.com/eush77/unist-builder
 [unist-builder-blueprint]: https://github.com/eush77/unist-builder-blueprint
 
 ## Install
