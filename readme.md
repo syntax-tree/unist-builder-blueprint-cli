@@ -1,76 +1,135 @@
-[![npm](https://nodei.co/npm/unist-builder-blueprint-cli.png)](https://npmjs.com/package/unist-builder-blueprint-cli)
-
 # unist-builder-blueprint-cli
 
-[![Build Status][travis-badge]][travis] [![Dependency Status][david-badge]][david]
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Sponsors][sponsors-badge]][collective]
+[![Backers][backers-badge]][collective]
+[![Chat][chat-badge]][chat]
 
-Convert [Unist][] trees to [unist-builder][] notation.
+CLI to transform [**unist**][unist] [*trees*][tree] to [`unist-builder`][u]
+notation.
 
-[unist]:  https://github.com/wooorm/unist
-[unist-builder]: https://github.com/eush77/unist-builder
+## Install
 
-[travis]: https://travis-ci.org/eush77/unist-builder-blueprint-cli
-[travis-badge]: https://travis-ci.org/eush77/unist-builder-blueprint-cli.svg?branch=master
-[david]: https://david-dm.org/eush77/unist-builder-blueprint-cli
-[david-badge]: https://david-dm.org/eush77/unist-builder-blueprint-cli.png
+[npm][]:
 
-## Example
+```sh
+npm install -g unist-builder-blueprint-cli
+```
 
-Simple example:
+## Usage
 
-```js
+Stdin:
+
+```sh
+$ unist-builder-blueprint  <<< '{"type":"text","value":"alpha"}'
+u('text', 'alpha')
+```
+
+File:
+
+```sh
+$ cat input.json
+{
+  "type": "node",
+  "root": true,
+  "children": [
+    {"type": "literal", "value": 1},
+    {"type": "literal", "value": "bravo"}
+  ]
+}
 $ unist-builder-blueprint input.json
 u('node', { root: true }, [
-    u('node', 'foo'),
-    u('node', 'bar')
+    u('literal', 1),
+    u('literal', 'bravo')
 ])
 ```
 
-Set formatting options for [escodegen][]:
+Formatting options for [`escodegen`][escodegen]:
 
 ```js
 $ unist-builder-blueprint --format.indent.style="  " --format.quotes=double input.json
 u("node", { root: true }, [
-  u("node", "foo"),
-  u("node", "bar")
+  u("literal", 1),
+  u("literal", "bravo")
 ])
 ```
 
 ## CLI
 
-```
-Usage:  unist-builder-blueprint [--builder <u>] [escodegen_opts]... [<file>]
-```
+```txt
+Usage: unist-builder-blueprint [--builder <u>] [escodegen_opts]... [<file>]
 
-Convert `<file>` (stdin by default) to [unist-builder][] notation.
+  Convert <file> (stdin by default) to unist-builder notation.
 
-Accepts options for [escodegen][]. See [escodegen wiki][] for details.
+  Accepts options for escodegen. See escodegen wiki for details.
 
-```
 Options:
   --builder <u>  Builder function to use (default: "u")
 ```
 
-[escodegen]: https://github.com/estools/escodegen
-[escodegen wiki]: https://github.com/estools/escodegen/wiki/API
-
-## API
-
-See [unist-builder-blueprint][].
-
 ## Related
 
--   [unist-builder][] — helper for creating Unist trees.
--   [unist-builder-blueprint][] — API for this module.
+*   [`unist-builder`][u]
+    — Create [unist][] trees
+*   [`unist-builder-blueprint`](https://github.com/syntax-tree/unist-builder-blueprint)
+    — API for this module
+*   [`hastscript`](https://github.com/syntax-tree/hastscript)
+    — Create [hast][] trees
 
-[unist-builder-blueprint]: https://github.com/eush77/unist-builder-blueprint
+## Contribute
 
-## Install
+See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
+started.
+See [`support.md`][support] for ways to get help.
 
-```
-npm install unist-builder-blueprint-cli
-```
+This project has a [Code of Conduct][coc].
+By interacting with this repository, organisation, or community you agree to
+abide by its terms.
 
 ## License
 
-MIT
+[MIT][license] © Eugene Sharygin
+
+[build-badge]: https://img.shields.io/travis/syntax-tree/unist-builder-blueprint-cli.svg
+
+[build]: https://travis-ci.org/syntax-tree/unist-builder-blueprint-cli
+
+[coverage-badge]: https://img.shields.io/codecov/c/github/syntax-tree/unist-builder-blueprint-cli.svg
+
+[coverage]: https://codecov.io/github/syntax-tree/unist-builder-blueprint-cli
+
+[downloads-badge]: https://img.shields.io/npm/dm/unist-builder-blueprint-cli.svg
+
+[downloads]: https://www.npmjs.com/package/unist-builder-blueprint-cli
+
+[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
+
+[backers-badge]: https://opencollective.com/unified/backers/badge.svg
+
+[collective]: https://opencollective.com/unified
+
+[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+
+[chat]: https://spectrum.chat/unified/syntax-tree
+
+[npm]: https://docs.npmjs.com/cli/install
+
+[license]: license
+
+[contributing]: https://github.com/syntax-tree/.github/blob/master/contributing.md
+
+[support]: https://github.com/syntax-tree/.github/blob/master/support.md
+
+[coc]: https://github.com/syntax-tree/.github/blob/master/code-of-conduct.md
+
+[unist]: https://github.com/syntax-tree/unist
+
+[tree]: https://github.com/syntax-tree/unist#tree
+
+[hast]: https://github.com/syntax-tree/hast
+
+[u]: https://github.com/syntax-tree/unist-builder
+
+[escodegen]: https://github.com/estools/escodegen
