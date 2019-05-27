@@ -2,35 +2,32 @@
   "name": "unist-builder-blueprint-cli",
   "version": "1.0.0",
   "description": "Convert Unist trees to unist-builder notation",
-  "author": "Eugene Sharygin <eush77@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "unist",
+    "util",
+    "utility",
+    "unist-builder",
+    "ast",
+    "cst",
+    "syntax",
+    "tree",
+    "blueprint",
+    "cli"
+  ],
+  "repository": "eush77/unist-builder-blueprint-cli",
+  "bugs": "https://github.com/eush77/unist-builder-blueprint-cli/issues",
+  "author": "Eugene Sharygin <eush77@gmail.com>",
+  "contributors": [
+    "Eugene Sharygin <eush77@gmail.com>",
+    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
+  ],
   "bin": {
     "unist-builder-blueprint": "cli.js"
-  },
-  "scripts": {
-    "test": "mocha"
   },
   "files": [
     "cli.js",
     "lib/"
-  ],
-  "homepage": "https://github.com/eush77/unist-builder-blueprint-cli",
-  "repository": "eush77/unist-builder-blueprint-cli",
-  "bugs": {
-    "url": "https://github.com/eush77/unist-builder-blueprint-cli/issues"
-  },
-  "keywords": [
-    "ast",
-    "blueprint",
-    "cli",
-    "convert",
-    "dsl",
-    "notation",
-    "syntax",
-    "tree",
-    "u",
-    "unist",
-    "unist-builder"
   ],
   "dependencies": {
     "escodegen": "^1.0.0",
@@ -47,5 +44,8 @@
   "devDependencies": {
     "mocha": "^6.0.0",
     "nixt": "^0.5.0"
+  },
+  "scripts": {
+    "test": "mocha"
   }
 }
