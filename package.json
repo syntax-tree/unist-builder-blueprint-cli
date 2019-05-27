@@ -45,7 +45,7 @@
     "unist-builder-blueprint": "^1.0.0"
   },
   "devDependencies": {
-    "mocha": "^3.4.0",
+    "mocha": "^6.0.0",
     "nixt": "^0.5.0"
   }
 }
