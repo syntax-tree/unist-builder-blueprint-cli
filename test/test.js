@@ -23,6 +23,13 @@ describe('should accept input', function() {
 })
 
 describe('should raise an error', function() {
+  it('on multiple files', function(done) {
+    nixt()
+      .run('./cli.js foo bar')
+      .code(1)
+      .end(done)
+  })
+
   it('on nonexistent file', function(done) {
     nixt()
       .run('./cli.js nonexistent')
@@ -53,6 +60,22 @@ describe('should accept', function() {
       .stdin(fs.readFileSync('test/data/input.json'))
       .run('./cli.js --format.indent.style="  " --format.quotes=double')
       .stdout(fs.readFileSync('test/data/format-output.js', 'utf8').trim())
+      .end(done)
+  })
+})
+
+describe('other options', function() {
+  it('--help', function(done) {
+    nixt()
+      .run('./cli.js --help')
+      .code(0)
+      .end(done)
+  })
+
+  it('--version', function(done) {
+    nixt()
+      .run('./cli.js --version')
+      .code(0)
       .end(done)
   })
 })
