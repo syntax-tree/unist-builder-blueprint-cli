@@ -1,25 +1,60 @@
 #!/usr/bin/env node
 'use strict'
 
+var fs = require('fs')
+var concat = require('concat-stream')
 var toU = require('unist-builder-blueprint')
-var escodegen = require('escodegen').generate
 var minimist = require('minimist')
-var readFileStdin = require('read-file-stdin')
-var die = require('or-die')
-var usage = require('./lib/usage')
+var escodegen = require('escodegen').generate
+var bail = require('bail')
 
-require('help-version')(usage)
+var name
+var stream
 
-var opts = minimist(process.argv.slice(2))
+var options = minimist(process.argv.slice(2))
 
-readFileStdin(opts._[0], function(err, buffer) {
-  if (err) return die(err.toString())
+if (options.v || options.version) {
+  console.log(require('./package').version)
+} else if (options.h || options.help) {
+  console.log(
+    [
+      '',
+      'Usage: unist-builder-blueprint [--builder <u>] [escodegen_opts]... [<file>]',
+      '',
+      '  Convert <file> (stdin by default) to unist-builder notation.',
+      '',
+      '  Accepts options for escodegen. See escodegen wiki for details.',
+      '',
+      'Options:',
+      '  --builder <u>  Builder function to use (default: "u")'
+    ].join('\n')
+  )
+} else {
+  switch (options._.length) {
+    case 0:
+      name = '<stdin>'
+      stream = process.stdin
+      break
+    case 1:
+      name = options._[0]
+      stream = fs.createReadStream(name)
+      break
+    default:
+      throw new Error('Pass one file or stdin')
+  }
+
+  stream.on('error', bail)
+  stream.pipe(concat(onconcat))
+}
+
+function onconcat(buf) {
+  var estree
 
   try {
-    var ast = JSON.parse(buffer.toString())
-    var escode = escodegen(toU(ast, {builder: opts.builder}), opts)
-    console.log(escode)
+    estree = toU(JSON.parse(buf), {builder: options.builder})
   } catch (error) {
-    die(error.toString())
+    throw new Error('Could not parse `' + name + '` as JSON: ' + error)
   }
-})
+
+  console.log(escodegen(estree, options))
+}
