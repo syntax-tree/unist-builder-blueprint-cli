@@ -8,16 +8,16 @@ var nixt = require('nixt')
 describe('should accept input', function() {
   it('from file', function(done) {
     nixt()
-      .run('./cli.js test/data/input.json')
-      .stdout(fs.readFileSync('test/data/output.js', 'utf8').trim())
+      .run('./cli.js test/fixtures/input.json')
+      .stdout(String(fs.readFileSync('test/fixtures/output.txt')).trim())
       .end(done)
   })
 
   it('from stdin', function(done) {
     nixt()
-      .stdin(fs.readFileSync('test/data/input.json'))
+      .stdin(fs.readFileSync('test/fixtures/input.json'))
       .run('./cli.js')
-      .stdout(fs.readFileSync('test/data/output.js', 'utf8').trim())
+      .stdout(fs.readFileSync('test/fixtures/output.txt', 'utf8').trim())
       .end(done)
   })
 })
@@ -49,17 +49,19 @@ describe('should raise an error', function() {
 describe('should accept', function() {
   it('--builder to set custom builder', function(done) {
     nixt()
-      .stdin(fs.readFileSync('test/data/input.json'))
+      .stdin(fs.readFileSync('test/fixtures/input.json'))
       .run('./cli.js --builder=NODE')
-      .stdout(fs.readFileSync('test/data/builder-output.js', 'utf8').trim())
+      .stdout(
+        String(fs.readFileSync('test/fixtures/builder-output.txt')).trim()
+      )
       .end(done)
   })
 
   it('format options for escodegen', function(done) {
     nixt()
-      .stdin(fs.readFileSync('test/data/input.json'))
+      .stdin(fs.readFileSync('test/fixtures/input.json'))
       .run('./cli.js --format.indent.style="  " --format.quotes=double')
-      .stdout(fs.readFileSync('test/data/format-output.js', 'utf8').trim())
+      .stdout(String(fs.readFileSync('test/fixtures/format-output.txt')).trim())
       .end(done)
   })
 })
