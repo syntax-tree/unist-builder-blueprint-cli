@@ -18,7 +18,7 @@ notation.
 npm install -g unist-builder-blueprint-cli
 ```
 
-## Usage
+## Use
 
 Stdin:
 
@@ -77,6 +77,8 @@ Options:
     — API for this module
 *   [`hastscript`](https://github.com/syntax-tree/hastscript)
     — Create [hast][] trees
+*   [`xastscript`](https://github.com/syntax-tree/xastscript)
+    — Create [xast][] trees
 
 ## Contribute
 
@@ -110,7 +112,7 @@ abide by its terms.
 
 [collective]: https://opencollective.com/unified
 
-[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+[chat-badge]: https://img.shields.io/badge/chat-spectrum-7b16ff.svg
 
 [chat]: https://spectrum.chat/unified/syntax-tree
 
@@ -129,6 +131,8 @@ abide by its terms.
 [tree]: https://github.com/syntax-tree/unist#tree
 
 [hast]: https://github.com/syntax-tree/hast
+
+[xast]: https://github.com/syntax-tree/xast
 
 [u]: https://github.com/syntax-tree/unist-builder
 
