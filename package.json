@@ -37,7 +37,7 @@
   "dependencies": {
     "bail": "^1.0.0",
     "concat-stream": "^2.0.0",
-    "escodegen": "^1.0.0",
+    "escodegen": "^2.0.0",
     "minimist": "^1.0.0",
     "unist-builder-blueprint": "^1.0.0"
   },
