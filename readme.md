@@ -94,9 +94,9 @@ abide by its terms.
 
 [MIT][license] © Eugene Sharygin
 
-[build-badge]: https://img.shields.io/travis/syntax-tree/unist-builder-blueprint-cli.svg
+[build-badge]: https://github.com/syntax-tree/unist-builder-blueprint-cli/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/syntax-tree/unist-builder-blueprint-cli
+[build]: https://github.com/syntax-tree/unist-builder-blueprint-cli/actions
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/syntax-tree/unist-builder-blueprint-cli.svg
 
